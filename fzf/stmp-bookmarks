@@ -1,0 +1,2 @@
+ssh -v root@ubsstmp-appl-dev.cust ## log into the appl-dev server
+

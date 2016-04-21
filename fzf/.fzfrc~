@@ -1,0 +1,35 @@
+# =================================================================
+# fkill - kill process
+# https://github.com/junegunn/fzf/wiki/examples
+
+fzf-kill() {
+  pid=$(ps -ef | sed 1d | fzf -d -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    kill -${1:-9} $pid
+  fi
+}
+
+
+# =================================================================
+# fzf-snippet
+# https://github.com/gotbletu/shownotes/blob/master/fzf-snippet.md
+
+# edit single line snippet
+cfg-snippetrc() { $EDITOR ~/.snippetrc ;}
+
+# edit multiline snippet
+cfg-multisnippetrc() { $EDITOR ~/.multisnippet/"$(ls ~/.multisnippet | fzf-tmux -d -e -i)" ;}
+
+#create new multiline snippet
+multisnippet() { $EDITOR ~/.multisnippet/"$1" ;}
+
+fzf-snippet() {
+    # NOTE: first argument $1 stands for the path to snippet file
+    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf -d -e -i )"
+    # remove tags, leading and trailing spaces, also no newline
+    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n' | xclip -i -sel p -f | xclip -i -sel c
+    echo "$selected"
+}
+
