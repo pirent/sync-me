@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Echo contents of give file with comments and empty lines stripped
+cat $1 | sed 's/#.*//g' | sed '/^\s*$/d'
