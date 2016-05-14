@@ -3,5 +3,4 @@
 2) Add these lines to your bashrc
 export BOOKMARKS_DIR='<path-to-your-dir-which-stores-the-bookmark-files>'
 source $BOOKMARKS_DIR/.fzfrc
-3) Copy two script files here to the /usr/bin
-4) Make both files executable: sudo chmod a+x /usr/bin/<name-of-these-files>
+3) Add this alias: alias search_bookmark='fzf-snippet $(find $BOOKMARKS_DIR | fzf)' 

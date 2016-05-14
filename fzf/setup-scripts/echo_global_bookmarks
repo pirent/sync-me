@@ -1,9 +1,0 @@
-#!/bin/bash
-
-bookmark_list=''
-
-if [ -r $BOOKMARKS_DIR ]; then
-    bookmark_list=$(echo_file_content $BOOKMARKS_DIR)
-fi
-
-echo -e "$bookmark_list" | sed '/^\s*$/d'
