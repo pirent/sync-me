@@ -1,0 +1,1 @@
+alias phuc_search_bookmark='fzf-snippet $(find $BOOKMARKS_CATEGORY_DIR | fzf)'
