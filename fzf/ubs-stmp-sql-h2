@@ -1,0 +1,18 @@
+
+-- find all table and column names that reference to a specific table
+select table_name, column_list from information_schema.constraints where constraint_type = 'REFERENTIAL' AND TABLE_NAME LIKE '%SALES_OFFERING%' and SQL LIKE '%REFERENCES%EX9_T_SALES_OFFERING(ID)%'
+
+-- find sql that create that table
+select "SQL" from information_schema.tables where table_schema ='PUBLIC' and table_name = 'EX9_T_OFFERING_MARKETING_EXT'
+
+-- show all tables
+show tables
+
+-- show description of a tables
+show columns from ex9_t_sales_offering 
+
+-- ===========================================================
+-- for migrating offering marketing ext to sales offering
+-- ===========================================================
+alter table ex9_t_sales_offering alter id raw(16) not null auto_increment
+insert into EX9_T_SALES_OFFERING (IDENTITY_FK, STATE, TECHNICAL_LIFE_CYCLE, VALID_FROM, VALID_TO, VERSION) select ID, 'APPROVED', 'ACTIVE', '1900-01-01 00:00:00.0', '9999-01-01 00:00:00.0', 1 from EX9_T_SALES_OFFERING_IDENTITY

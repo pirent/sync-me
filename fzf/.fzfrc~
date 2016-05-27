@@ -25,25 +25,12 @@ cfg-multisnippetrc() { $EDITOR ~/.multisnippet/"$(ls ~/.multisnippet | fzf-tmux 
 #create new multiline snippet
 multisnippet() { $EDITOR ~/.multisnippet/"$1" ;}
 
-fzf-snippet ()
-{
-    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf-tmux -d -e -i )";
-    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n' | xclip -i -sel p -f | xclip -i -sel c;
+fzf-snippet() {
+    # NOTE: first argument $1 stands for the path to snippet file
+    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf -d -e -i )"
+    # remove tags, leading and trailing spaces, also no newline
+    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n' | xclip -i -sel p -f | xclip -i -sel c
     echo "$selected"
 }
 
-fzf-multisnippet ()
-{
-    dir=$FZF_MULTILINE_SNIPPET_DIR;
-    results=$(for FILE in $dir/*
-    do
-        getname=$(basename $FILE)
-        gettags=$(head -n 1 $FILE)
 
-        printf "$getname \t\t $gettags\n"
-
-    done);
-    filename=$(echo "$(echo "$results" | fzf-tmux -d -e -i )" | cut -d' ' -f 1);
-    echo && cat $dir/$filename && echo;
-    sed 1d $dir/$filename | xclip -i -sel p -f | xclip -i -sel c
-}
