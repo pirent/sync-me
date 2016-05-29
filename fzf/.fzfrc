@@ -34,7 +34,8 @@ fzf-snippet ()
 
 fzf-multisnippet ()
 {
-    dir=$FZF_MULTILINE_SNIPPET_DIR;
+    #dir=$FZF_MULTILINE_SNIPPET_DIR;
+    dir=$MULTILINE_BOOKMARKS_DIR;
     results=$(for FILE in $dir/*
     do
         getname=$(basename $FILE)

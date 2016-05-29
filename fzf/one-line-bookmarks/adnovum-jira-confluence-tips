@@ -1,0 +1,15 @@
+Confluence Education Portal ;; https://aww.adnovum.ch/confluence/pages/viewpage.action?pageId=44511451
+
+Markup Wiki ;; https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html
+
+Hightlight code syntax ;; {code:sql|linenumbers|title=important.sql file from production|highlight=[7,3-5]|first-line=2}
+
+Short link without broken URL in future ;; press k, the popup shows a page link you can copy
+
+Why need to archive ;; There is some old contents which has out-dated information => misleading new comer. Archiving will move them out of the search tree
+
+Quick search in confluence ;; Press "/" (match title only)
+
+Link to jira ticket in confluence ;; just type {JIRA and the dialog is popup for suggestion 
+
+Create simple task in meeting minute ;; Just type []
