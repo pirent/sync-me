@@ -1,1 +1,2 @@
 Set up git commit editor ;; git config --global core.editor "vim"
+See commit logs ;; git log
