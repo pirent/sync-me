@@ -1,0 +1,1 @@
+Set up git commit editor ;; git config --global core.editor "vim"
