@@ -13,3 +13,11 @@ Quick search in confluence ;; Press "/" (match title only)
 Link to jira ticket in confluence ;; just type {JIRA and the dialog is popup for suggestion 
 
 Create simple task in meeting minute ;; Just type []
+
+Versioning name convention ;; xdg-open /home/vhphuc/Downloads/adnovum_developer_guideline_v2_2_20120620.pdf
+
+General and coding convention ;; https://aww.adnovum.ch/confluence/x/bFBBAg
+
+https://aww.adnovum.ch/confluence/x/8bX1 ;; Code review tooling
+
+https://aww.adnovum.ch/confluence/x/XQgcAQ ;; Code review best practice

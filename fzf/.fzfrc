@@ -27,7 +27,7 @@ multisnippet() { $EDITOR ~/.multisnippet/"$1" ;}
 
 fzf-snippet ()
 {
-    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf-tmux -d -e -i )";
+    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf -d -e -i )";
     echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n' | xclip -i -sel p -f | xclip -i -sel c;
     echo "$selected"
 }
@@ -44,7 +44,7 @@ fzf-multisnippet ()
         printf "$getname \t\t $gettags\n"
 
     done);
-    filename=$(echo "$(echo "$results" | fzf-tmux -d -e -i )" | cut -d' ' -f 1);
+    filename=$(echo "$(echo "$results" | fzf -d -e -i )" | cut -d' ' -f 1);
     echo && cat $dir/$filename && echo;
     sed 1d $dir/$filename | xclip -i -sel p -f | xclip -i -sel c
 }

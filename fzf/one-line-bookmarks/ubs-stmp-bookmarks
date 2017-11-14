@@ -1,7 +1,113 @@
-login to appl-dev ;; ssh -v root@ubsstmp-appl-dev.cust
+ssh -v root@ubsstmp-appl-dev.cust ;; login to appl-dev
 
-International setup ;; https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/xQBEAg
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/xQBEAg ;; International setup 
 
-Overview of mandator ;;  https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/Ag8jAQ
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/Ag8jAQ ;; Overview of mandator 
 
-IMO core entities ;; https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/LAvAAQ
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/LAvAAQ ;; IMO core entities 
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPSA/Reference+Data Reference data 
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/IMOPROJ/STMP+IT+Delivery+Package+for+IMO ;; IMO delivery packages 
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/M487AQ ;; Flyway 
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/qIxTAQ ;; Port number 
+
+http://ubsstmp-appl-dev.cust.adnovum.ch:9101/EX9/1/IMOfferingManagement/services ;; IMO private module services 
+
+http://ubsstmp-appl-dev.cust.adnovum.ch:9331/EX9/1/IMOfferingManagementPublicModule/services ;; IMO public module services 
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/gJ9mAQ ;; IMO public interfaces and its consumer 
+
+op pcydbbase sqlplus ex9 imo ;; sqlplus for imo
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/RRkwAQ ;; Tracing format
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/jgcwAQ ;; Logging format
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/NQh7AQ ;; How to release
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/H4VTAQ ;; How to platform upgrade
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/44KoAQ ;; Best practices
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/OYtHAQ ;; backend explaination
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/T5YTAg ;; update ADZ with latest reference data
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/QRk-Ag ;; how to use embeddable domain
+
+http://localhost:8181/EX9/1/IMOfferingManagement/services/ ;; local imo private services
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/2phmAQ ;; mandator setup
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/IRkwAQ ;; generator properties
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/0YgXAQ ;; function entitlement
+
+java -jar /local/stmp/version.jar . EX9.IMOfferingManagement=<version> ;; update priv module version
+
+java -jar /local/stmp/version.jar . EX9.IMOfferingManagement.PublicModule.MODEL=<pub-module-version>  EX9.IMOfferingManagement=<priv-module-version> ;; update public module model version
+
+java -jar /local/stmp/version.jar . EX9.IMOfferingManagement.PublicModule.IMPL=<version> ;; update public module impl version
+
+java -jar /local/stmp/version.jar . --frontend EX8.IMOFFERINGMANAGEMENT=<version> ;; update cockpit version
+
+java -jar /local/stmp/version.jar . --frontend EY1.IMOFFERINGMANAGEMENT=<version> ;; update frontend version
+
+https://ubsstmp-appl-dev.cust.adnovum.ch/A6L/1/IMProductManagementPublicModule/services/ ;; IPM public service
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/aZI7AQ ;; Jenkins Job Scheduling Guide
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/3sj1AQ ;; Implementing Batch job
+
+https://collab.adnovum.ch/stmpdev/svn/PCY/factory/trunk/pkgs/pcyrdmetareg/config/ ;; Query descriptor
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/TxcwAQ ;; Reference data integration
+
+https://ubsstmp-appl-dev.cust.adnovum.ch/A6L/1/IMProductManagement/services/ ;; IPM private module services
+
+https://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/pages/viewpage.action?spaceKey=IMPROG&title=STMP+Public+API+Design+Standards ;; BMOD guidline
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPSA/A00+Library+Versions ;; A00 Library version
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/IFDAAQ ;; Mandate instruction term explain
+
+https://collab.adnovum.ch/shady/confluence/display/STMPSA/PCY+2.7.0 ;; PCY Release note
+
+https://collab.adnovum.ch/shady/confluence/display/STMPSA/Glossary ;; Glosary
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/pages/viewpage.action?pageId=32276981 ;; Performance Analysis guide
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPPLAT/Runtime+specific+logback+configurations ;; log configuration
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPSA/Defining+dependencies ;; bundle version in A00
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPPLAT/Multi+Versioning+for+Frontend ;; multi version for frontend
+
+http://ubsstmpdev-prod-01.cust.adnovum.ch/shady/confluence/display/STMPSA/Accessing+the+Configuration+Server ;; configuration server
+
+https://collab.adnovum.ch/shady/confluence/display/STMPSA/Setting+Log+Levels+from+Command+Line ;; Jolokia - setting log levels from command line
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPSA/Generate+SQL+scripts+with+the+Modeler+and+BMOD+Browser ;; generated sql script
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/7QEjAQ ;; PM interaction diagram
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/mAANAQ ;; RCP architecture
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/2oKK ;; Programming model
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/t_X1AQ ;; Flyway OP command
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/WYJTAQ ;; A00 integration guide
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/display/STMPSA/Creating+a+new+Backend+Project ;; Creating backend project
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/PxcwAQ ;; STMP Context
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/mSUEAg ;; J6S guide
+
+http://ubsstmpdev-prod-00.cust.adnovum.ch/shady/confluence/x/GqITAg ;; J6S business logic
+
+https://collab.adnovum.ch/shady/confluence/display/STMPSA/Apply+SQL+scripts+with+Flyway+on+the+target+database ;; Flyway command

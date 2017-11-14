@@ -1,0 +1,7 @@
+@see multilines-bookmark-search ;; How to use parameter with JPA Criteria API
+http://www.altuure.com/2010/09/23/jpa-criteria-api-by-samples-part-i/ ;; ORDER BY in JPA Criteria API
+http://www.altuure.com/2010/09/23/jpa-criteria-api-by-samples-part-i/ ;; GROUP BY in JPA Criteria API
+http://tomee.apache.org/jpa-concepts.html ;; Different between RESOURCE_LOCAL and JTA
+http://tomee.apache.org/jpa-concepts.html ;; JPA Cache concept
+http://java.boot.by/scbcd5-guide/ch06.html ;; Java Persistence Entity Operations, describe how to manage entities, including using EntityManager API and cascade option
+http://www.objectdb.com/java/jpa/query/jpql/collection ;; Collections in JPA

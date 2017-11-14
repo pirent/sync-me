@@ -1,0 +1,7 @@
+Alt + Shift + - (numpad) ;; showing menu for closing tabs
+F8 ;; switch perspective
+F7 ;; switch view
+F6 ;; switch editor
+Ctrl + M ;; maximize/restore the active view
+Ctrl + Shift + L ;; show a list of available shortcuts
+Ctrl + F10 ;; switch working set

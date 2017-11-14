@@ -1,0 +1,13 @@
+Query to find table relationship types
+
+select p.table_name, 'is parent of ' rel, c.table_name
+from   user_constraints p
+join   user_constraints c on c.r_constraint_name = p.constraint_name
+                         and c.r_owner = p.owner
+where p.table_name = 'EX9_T_SALES_OFFERING'    
+union all
+select c.table_name, 'is child of ' rel, p.table_name
+from   user_constraints p
+join   user_constraints c on c.r_constraint_name = p.constraint_name
+                         and c.r_owner = p.owner
+where c.table_name = 'EX9_T_SALES_OFFERING';

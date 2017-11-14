@@ -1,0 +1,8 @@
+git fetch --prune ;; update list of remote branches and remove one no longer has counterpart branch in repository
+git checkout -- ;; undo all unstagged change
+https://www.git-tower.com/learn/git/faq/track-remote-upstream-branch ;; explains ahead and behind commit
+git pull --rebase origin master ;; to avoid superfluous merge commit everytime need to synchornize with central repository
+git reset --hard ;; revert all uncommitted changes
+git branch -d the-local-branch ;; delete local branch
+git branch -m <newname> ;; rename the current branch
+git branch -m <oldname> <newname> ;; rename other branch

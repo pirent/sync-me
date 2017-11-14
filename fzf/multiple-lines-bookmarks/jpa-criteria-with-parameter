@@ -1,0 +1,30 @@
+JPA Criteria with parameter
+
+The following query string represents a JPQL query with a parameter:
+
+// =====================================================
+SELECT c FROM Country c WHERE c.population > :p
+// =====================================================
+
+An equivalent query can be built using the JPA criteria API as follows:
+
+// =====================================================
+  CriteriaBuilder cb = em.getCriteriaBuilder();
+ 
+  CriteriaQuery<Country> q = cb.createQuery(Country.class);
+  Root<Country> c = q.from(Country.class);
+  ParameterExpression<Integer> p = cb.parameter(Integer.class);
+  q.select(c).where(cb.gt(c.get("population"), p));
+// =====================================================
+
+The ParameterExpression instance, p, is created to represent the query parameter. The where method sets the WHERE clause. As shown above, The CriteriaQuery interface supports method chaining. See the links in the next sections of this page for detailed explanations on how to set criteria query clauses and build criteria expressions.
+
+Running this query requires setting the parameter:
+
+// =====================================================
+  TypedQuery<Country> query = em.createQuery(q);
+  query.setParameter(p, 10000000);
+  List<Country> results = query.getResultList();
+// =====================================================
+
+The setParameter method takes a Parameter (or a ParameterExpression) instance as the first argument instead of a name or a position (which are used with string based JPQL parameters).

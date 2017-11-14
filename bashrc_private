@@ -1,0 +1,109 @@
+# your private modifications to adnhome
+# will be sourced after adnhome
+# on local shells, for remote shells see bash_profile_private
+
+# machine dependent configuration
+if [ -e ~/.adnhome/private/bashrc_private_${HOSTNAME} ]; then
+	print_msg " loading  bashrc_private_${HOSTNAME}"
+	source ~/.adnhome/private/bashrc_private_${HOSTNAME}
+fi
+ 
+# If you want to have a different _private for remote and local logins
+# by default we only load bashrc_private to stay compatible to legacy adnhome
+if [[ ! -z "$IS_BASH_PROFILE" ]]; then
+	# only execute during remote login (always on suse)
+	true
+else
+	# only execute during local login (always on suse)
+	true
+fi
+
+# ============ MINE ============
+#PS1='\[\e[1;34m\][\d \t \u@\h \w]\$\[\e[m\] '
+#export PS1
+
+# Play sound when build or any command complete with success result
+play_success1() {
+	aplay /home/vhphuc/sound/tadUPD06.wav > /dev/null 2>&1 &
+}
+
+play_success2() {
+	aplay /home/vhphuc/sound/TAdUpd07.wav > /dev/null 2>&1 &
+}
+
+# Play sound when a command fail to run
+play_fail() {
+	aplay /home/vhphuc/sound/tadErr00.wav > /dev/null 2>&1 &
+}
+
+alias phuc_svn_st_modify='svn stat * | grep ^M | grep -v ".component$\|.project$i\|.classpath$\|.prefs$\|.target$\|.launch$"'
+alias phuc_svn_st_add='svn stat * | grep ^A'
+alias phuc_stmp_export_remote_debug='export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n'
+alias phuc_stmp_start_server='adnmvn -Pit verify -Dtomcat.fork=false -DskipTests'
+alias phuc_edit_bashrc='vi ~/.adnhome/private/bashrc_private'
+alias phuc_apply_bashrc='source ~/.adnhome/private/bashrc_private'
+alias phuc_mb='adnmvn clean install -DskipTests && play_success1 || play_fail'
+alias phuc_mbnc='adnmvn install -DskipTests && play_success1 || play_fail'
+alias phuc_mbt='adnmvn clean install && play_success1 || play_fail'
+alias phuc_mbi='adnmvn clean install -PquickBuild && play_success2 || play_fail'
+alias phuc_db='java -jar /local/stmp/h2/h2/bin/h2-1.4.189.jar'
+alias phuc_vm='rdesktop -d adnovum -u anguyen -g 1920x1200 10.21.215.215'
+alias phuc_logon_screen='sudo vi /usr/share/backgrounds/default.xml'
+alias phuc_ipm_import_db='cd /local/stmp/ipm/ipm_impl/service/A6L_IMProductManagementWeb && adnmvn clean install -PquickBuild && play_success1 || play_fail'
+alias phuc_ipm_start_server='cd /local/stmp/ipm/ipm_impl/service/A6L_IMProductManagementWeb && adnmvn -Pit verify -Dtomcat.fork=false -DskipTests && play_success1 || play_fail'
+
+# ============================================= ||
+# FZF
+# ============================================= ||
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Setup cdg function
+# ---------------------------
+unalias cdg 2> /dev/null
+cdg() {
+	local dest_dir=$(cdscuts_glob_echo | fzf )
+	if [[ $dest_dir != '' ]]; then
+		cd "$dest_dir"
+	fi
+}
+export -f cdg > /dev/null
+
+# open-file - Open  the slected file with the default editor
+#  - Bypass fuzzy finder if there's only one match (--select -1)
+#  - Exit if there's no match (--exit-0)
+open-file() {
+	IFS=''
+	local declare files=($(fzf --query="$1" --select-1 --exit-0))
+	[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+	unset IFS
+}
+
+# fd - cd to selected directory
+fd() {
+	local dir
+	dir=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+# CONFIG
+source ~/pirent-station/fzf/.fzfrc
+export BOOKMARKS_CATEGORY_DIR='/home/vhphuc/pirent-station/fzf'
+export MULTILINE_BOOKMARKS_DIR='/home/vhphuc/pirent-station/fzf/multiple-lines-bookmarks'
+alias phuc_search_bookmark='fzf-snippet $(find $BOOKMARKS_CATEGORY_DIR/one-line-bookmarks/ | fzf)'
+alias multiline-search-bookmark='fzf-multisnippet'
+# ============================================= ||
+
+# ====== IMO =========
+alias phuc_imo_copy_db='cd /local/stmp/imo/imo_be/service/EX9_IMOfferingManagementWeb/target/db/h2 && cp * /tmp/ && cd -'
+alias phuc_imo_restore_db='cd /local/stmp/imo/imo_be/service/EX9_IMOfferingManagementWeb/target/ && mkdir -p db/h2 && cd db/h2 && cp /tmp/*.db . && cd -'
+# ============================================= ||
+
+# ====== IPM =========
+alias phuc_ipm_clean_up_cover_db_start_server='cd /local/stmp/ipm && cd ./ipm_model/ && phuc_stmp_build && cd ../ipm_impl && phuc_stmp_build && mkdir -p ./service/A6L_IMProductManagementWeb/target/db/h2 && cp ../IMProductManagement.mv.db ./service/A6L_IMProductManagementWeb/target/db/h2/ && adnmvn verify -Pit,smoke -Dtomcat.fork=false -DskipTests'
+# ============================================= ||
+#
+# ===== APPL DEV =======
+alias phuc-login-appl-dev='ssh root@ubsstmp-appl-dev.cust'
+# ============================================= ||
+source ~/Downloads/.bash-powerline.sh 
+
+

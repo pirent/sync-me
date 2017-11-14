@@ -1,0 +1,3 @@
+svn merge -r <newer version or current one>:<wanted version> <name of file> ;; revert to a single file to a specific version
+
+svn copy <trunk> <branches/name> -m "message" ;; create branch

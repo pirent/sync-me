@@ -1,1 +1,3 @@
-Extract a tar ball ;; tar -xzvf <name-of-file>
+tar -xzvf <name-of-file> ;; extract tar ball
+timedatectl set-timezone Asia/Ho_Chi_Minh ;; change timezone
+sed -n '/FOO/,/BAR/p' file.txt ;; print everything between FOO and BAR inclusive 
