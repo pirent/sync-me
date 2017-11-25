@@ -6,3 +6,4 @@ git reset --hard ;; revert all uncommitted changes
 git branch -d the-local-branch ;; delete local branch
 git branch -m <newname> ;; rename the current branch
 git branch -m <oldname> <newname> ;; rename other branch
+git config --global core.editor emacs ;; configure git editor as vi

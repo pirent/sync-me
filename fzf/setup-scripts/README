@@ -18,3 +18,7 @@ touch ~/.tmux.conf
 set-window-option -g mode-keys vi
 # reload
 tmux source-file ~/.tmux.conf
+------------------------
+5) Enable fzf-snippet
+see the file .bashrc, there was a line to enable fzfrc
+add this to your bashrc
