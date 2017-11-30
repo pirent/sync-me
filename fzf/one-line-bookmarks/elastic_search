@@ -1,0 +1,3 @@
+curl -XDELETE 'http://localhost:9200/<index_name>' ;; delete index
+curl -XGET 'http://localhost:9200/_cat/indices?v' ;; list all indices
+curl -XGET 'http://localhost:9200/<index_name>/_count' ;; count hit in one index

@@ -1,3 +1,12 @@
 tar -xzvf <name-of-file> ;; extract tar ball
 timedatectl set-timezone Asia/Ho_Chi_Minh ;; change timezone
 sed -n '/FOO/,/BAR/p' file.txt ;; print everything between FOO and BAR inclusive 
+echo $? ;; get exit status of previous command
+[[ -f file ]] ;; file exists and a regular file
+[[ -d file ]] ;; file exists and a directory
+[[ -r file ]] ;; file exists and readable # same for -w (writtable), -x (executable)
+[[ -n string ]] ;; string's length is greater than zero
+[[ -z string ]] ;; string's length is zero
+(( $INT == 1 )) ;; useful for integers, supports arithmetic evaluation
+read myvar ;; read values from stdin to a variable (see --help for more options)
+:%s/foo/bar/gc ;; vim string substitution: change each foo to bar, ask for confirmation
