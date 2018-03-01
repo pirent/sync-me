@@ -1,0 +1,10 @@
+ansible-playbook --list-tasks <playbook-file> ;; summarize what a playbook is going to do
+ansible-playbook --list-host <playbook-file> ;; output the hosts that the playbook will run against
+ansible-playbook --syntax-check <playbook-file> ;; check if syntax is valid
+ansible-playbook --check <playbook-file> ;; aka dry run, tell whether each task in playbook would modify the host
+ansible-playbook --diff --check <playbook-file> ;; dry run and see if any file will be changed
+ansible-playbook --step ;;  prompt you before running each task
+ansible-playbook --start-at-task="task name" ;; start running the playbook at the specified task
+> ;; line folding
+local_action ;; running a task on the control machine
+run_once: true ;; run a command only once, no matter how many hosts

@@ -1,0 +1,8 @@
+gradle -q tasks ;; tells which tasks are available
+gradle -x <name-of-task> ;; exclude a task from execution
+gradle -i (--info) ;; increse logging level to info
+gradle -q (--quite) ;; reduce log message to error only
+gradle --daemon ;; starts daemon
+gradle --stop ;; stop daemon
+gradle dependencies ;; show the dependency tree, both top-level and their transitive ones
+gradle -q dependencyInsight --configuration <name-of-config> --dependency <dependency-notation> ;; get dependency insight report
