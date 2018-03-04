@@ -1,0 +1,3 @@
+mvn package ;; package lesson
+cp <lesson-dir>/target/plugins/*.jar <web-goat-dir>/webgoat-container/src/main/webapp/plugin_lesson/ ;; update lesson
+cd <web-goat-dir> && mvn -pl webgoat-container tomcat7:run-war ;; run webgoat
