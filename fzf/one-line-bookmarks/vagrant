@@ -1,0 +1,6 @@
+vagrant scp <file_path> <vm_name>:/tmp/ ;; vagrant scp
+vagrant suspend <machine-name> ;; save the current state and stop it
+vagrant halt <machine-name> ;; shutdown vagrant VM, preserving the content of disk, the downside is still consume disk
+vagrant destroy <machine-name> ;; stop, power down vargrant VM, all resources are reclaimed, leave as a clean state, as if you never created the VM before; the downside is take extra time to up
+vagrant up <machine-name> ;; create and configure VM according to Vagrantfile
+vagrant reload ;; halt and up

@@ -1,0 +1,7 @@
+How to add block comment in VIM
+
+---------------------------------------------------------
+Go to the first line > Ctrl V > Visual Block mode
+Using arrow key, select until the last line
+Press Shift + I > put the editor into INSERT mode > then press #
+Then press ESC, give it a second, # will be inserted to the remain

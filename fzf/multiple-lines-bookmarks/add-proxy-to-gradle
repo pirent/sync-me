@@ -1,0 +1,8 @@
+Adding proxy to gradle
+
+edit the project's gradle.properties file
+add the following properties:
+systemProp.http.proxyHost=proxy.adnovum.vn
+systemProp.http.proxyPort=3128
+systemProp.https.proxyHost=proxy.adnovum.vn
+systemProp.https.proxyPort=3128

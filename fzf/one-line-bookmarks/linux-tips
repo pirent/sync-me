@@ -6,5 +6,15 @@ echo $? ;; get exit status of previous command
 yum list installed PACKAGE_NAME ;; check whether the package is already installed
 https://opensource.com/business/13/11/selinux-policy-guide ;; SELinux explaination with visual
 https://www.digitalocean.com/community/tutorials/an-introduction-to-selinux-on-centos-7-part-1-basic-concepts ;; SELinux concepts
-vagrant scp <file_path> <vm_name>:/tmp/ ;; vagrant scp
 diff --brief <dir1> <dir2> ;; compare difference between two directories
+ln -sf /path/to/file /path/to/symlink ;; create, update a symbolic link
+systemctl cat <name-of-service> ;; see content of a unit file of systemd
+systemctl edit --full <name-of-service> ;; edit the entire content of the unit file; then remember to reload systemd
+systemctl deamon-reload ;; reload systemd process to pick up recent changes
+journalctl -b -u <name-of-service> ;; see all journal entries for the unit provided, limit to the current boot
+cat /etc/redhat-release ;; check OS distribution version - redhat based
+unzip -p /path/to/some.jar path/to/file/inside/jar | less ;; read content of file in jar
+jar tvf <jar-file> ;; list content of JAR file
+jar xvf <jar-file> <file to be extracted> ;; extract content of JAR file
+jar uvf <jar-file> <file to be updated> ;; update content of JAR file
+:syntax on ;; enable syntax on in vim

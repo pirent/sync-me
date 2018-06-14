@@ -1,0 +1,5 @@
+How to unlock block comment in VIM
+
+---------------------------------------------------------
+put cursor at the first # > press CTRL V
+go down til the last comment > press x
