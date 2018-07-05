@@ -1,0 +1,10 @@
+<JIRA_TICKET_ID>: <summary - max. 120 chars>
+
+Why:
+- <Why is it necessary?>
+
+How:
+- <How is the issue addressed? High level description of the approach.>
+
+What are the effects:
+- <What are the effects in addition to the obvious ones? Benchmarks? Side effects etc.?>

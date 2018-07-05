@@ -1,0 +1,6 @@
+Commit message tips
+
+---------------------
+- After that one-line summary, an empty line, then multiple paragraphs explaining the patch in detail (if needed)
+- Don't describe the code, describe the intent and the approach
+- And keep the log in a present tense

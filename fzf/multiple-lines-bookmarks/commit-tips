@@ -1,0 +1,22 @@
+Commit sins
+
+------------------
+- Two changes in one patch. 
+    - Something like "Fixed bug 2345 and renamed all foo to bar". Unless bug 2345 required the renaming, fixes whould be split it up into multiple patches
+    - Others may have to take one of those bug fixes and apply it to a stable branch but not the other one
+	- Picking bad patches apart into useful chunks is one of the most time-consuming and frustrating things
+
+- Whitespace changes together with code changes
+    - It's a great way to introduce bugs, though because almost no-one will spot the bug hidden in hundreds of lines that got reindented for fun and profit
+
+- Unrelated whitespace changes in patches
+    - Whitespace-only hunks just confuse, a reviewer has to look extra hard to check if there's a real change or whether it can be ignored
+	- That's not so bad for empty lines added or removed, it's really bad for indentation changes.
+
+- Patch mix rewriting infra    
+	- Patches with hundreds of lines of code to dump a new feature into the code while at the same time rewriting half the existing infrastructure to support this feature
+	- As a result, those hundreds of lines of code need to be reviewed every time a bug is discovered that is somehow related to that area of code
+	- It's easier and less time consuming to first rework the infrastructure one piece at a time, then plug the new feature on top
+
+Source: http://who-t.blogspot.com/2009/12/on-commit-messages.html
+---------------------------
