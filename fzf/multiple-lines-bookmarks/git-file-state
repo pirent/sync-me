@@ -1,0 +1,11 @@
+Git file state
+
+-----------------------
+Each file in working directory is tracked or untracked
+Tracked files are files in the last snapshot, either: unmodified, modified, and staged
+Untracked files are files Git doesn't know about
+First time clone project > tracked + unmodified
+Edit file > tracked + modified
+Stage file > tracked + staged
+
+Lifecycle of status of file img: https://git-scm.com/book/en/v2/images/lifecycle.png 

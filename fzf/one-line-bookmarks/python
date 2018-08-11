@@ -1,1 +1,5 @@
 source <env-name>/bin/activate ;; use an environment
+{n, m}? or *? or +? ;; non greedy matching
+pattern.search('string', re.DOTALL) ;; matching newline with dot character
+pattern.search('string', re.I) ;; case-insensitive matching
+re.IGNORECASE | re.DOTALL ;; combining regex variables with pipe character

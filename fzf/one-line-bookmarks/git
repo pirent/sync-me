@@ -9,3 +9,4 @@ git branch -m <oldname> <newname> ;; rename other branch
 git config --global core.editor emacs ;; configure git editor as vi
 git push -d <remote_name> <branch_name>
 https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit ;; revert git to a previous commit
+git reset <commit-hash> ;; undo a commit that already have been pushed by creating new commit, undo all the works that was done in the commit you want to revert

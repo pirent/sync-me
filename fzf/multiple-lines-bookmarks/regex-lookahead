@@ -1,0 +1,14 @@
+Regex: How to use lookahead and lookbehind
+-----------
+Lookaround matches characters, but then gives up the match, returning only the result: match or no match.
+That is why they are called "assertions". They do not consume characters in the string, but only assert whether a match is possible or not.
+
++ lookahead:
+  - Positive: q(?=u), matches a 'q' that followed by an 'u', without making 'u' as part of the match
+  - Negetive: q(?!u), same above but a 'q' not followed by an 'u'
+
++ lookbehind:
+  - Same effect as lookahead but works backwards
+  - (?<!a)b: means matches a 'b' is not preceded by an 'a' (e.g., 'bed', 'debt')
+  - (?<=a)b: same but for positive match
+
