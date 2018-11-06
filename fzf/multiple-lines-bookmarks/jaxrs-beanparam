@@ -1,0 +1,24 @@
+What is JAX-RS @BeanParam
+----------------------------
+Allow to inject an POJO with JAX-RS injection annotation methods/fields as a parameter.
+This is a great way to aggregate information instead of having a long list of method parameters.
+
+public class CustomerInput {
+ 	@FormParam("first")
+	String firstName;
+  
+	@HeaderParam("Content-type")
+	String contentType;
+	...
+}
+
+We can have JAX-RS create, initialize, and inject this class using the @BeanParam annotation
+
+@Path("/customers")
+public class CustomerResource {
+	@Post
+	public void createCustomer(@BeanParam CustomerInput newCust) {
+		...
+	}
+}
+

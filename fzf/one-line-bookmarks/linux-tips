@@ -1,4 +1,7 @@
 tar -xzvf <name-of-file> ;; extract tar ball
+printenv <VAR_NAME> ;; print environment variable value
+env <KEY>=<VALUE> <command_to_run> <command option> ;; override or add additional variables for the child
+set ;; list all shell variables, environmental variables, local variables and shell function
 timedatectl set-timezone Asia/Ho_Chi_Minh ;; change timezone
 sed -n '/FOO/,/BAR/p' file.txt ;; print everything between FOO and BAR inclusive 
 echo $? ;; get exit status of previous command
@@ -10,7 +13,7 @@ diff --brief <dir1> <dir2> ;; compare difference between two directories
 ln -sf /path/to/file /path/to/symlink ;; create, update a symbolic link
 systemctl cat <name-of-service> ;; see content of a unit file of systemd
 systemctl edit --full <name-of-service> ;; edit the entire content of the unit file; then remember to reload systemd
-systemctl deamon-reload ;; reload systemd process to pick up recent changes
+systemctl daemon-reload ;; reload systemd process to pick up recent changes
 journalctl -b -u <name-of-service> ;; see all journal entries for the unit provided, limit to the current boot
 cat /etc/redhat-release ;; check OS distribution version - redhat based
 unzip -p /path/to/some.jar path/to/file/inside/jar | less ;; read content of file in jar
@@ -18,3 +21,9 @@ jar tvf <jar-file> ;; list content of JAR file
 jar xvf <jar-file> <file to be extracted> ;; extract content of JAR file
 jar uvf <jar-file> <file to be updated> ;; update content of JAR file
 :syntax on ;; enable syntax on in vim
+rpm -ivh <file.rpm> ;; install a RPM file
+rpm -q <name of package> ;; check whether a RPM package has been installed
+rpm -e <name of pakcage> ;; remove an installed RPM package
+less -N <file> ;; show line numbers
+sed -n '<start-line>,<end-line>p' <file> ;; crop/cut text file
+keytool -list -v -keystore <keystore_name> ;; view JKS file

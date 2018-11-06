@@ -1,0 +1,12 @@
+When to use query parameters versus matrix parameters?
+-----------------------
+Query parameters: http://example.com/apples?order=random&color=blue
+Matrix parameters: http://example.com/apples;order=random;color=blue
+
+The main differences are:
+* urls with query params won't have their response cached by intermediaries/proxies (at present)
+* matrix parameters may appear anywhere in path
+* calculating the relative uri is different
+* query params are generally abused to add new verbs instead of using existing methods on resources
+* matrix parameters are not resources, they are aspects that help reference a resource in an information space that is difficult to represent within a hierarchy
+----------------------

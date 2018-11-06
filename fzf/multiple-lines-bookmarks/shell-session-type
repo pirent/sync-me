@@ -1,0 +1,20 @@
+Type of session and which file to load
+---------------
+A login shell is a shell session that begins by authenticating the user
+  >> when you are signing into a terminal session or through SSH and authenticate
+
+A non-login shell is when a new shell session started from within your authenticated session
+  >> call "bash"
+
+An interactive shell session is a shell session that is attached to a terminal
+
+A non-interactive shell session is one is not attached to a terminal session
+  >>  A script run from the command line is usually run in a non-interactive, non-login shell
+
+A session started as a login session will read configuration details from the /etc/profile file first.
+It will then look for the first login shell configuration file in the user's home directory to get user-specific configuration details.
+  ~/.bash_profile
+  ~/.bash_login
+  ~/.profile
+
+A non-login shell will read /etc/bash.bashrc and then the user-specific ~/.bashrc file to build its environment.

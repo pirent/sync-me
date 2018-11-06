@@ -1,0 +1,20 @@
+JAX-RS URL matching rules - sort order
+------------------------
+1) Primary key: the number of literal characters in the full URI matching pattern
+  - sort in DESC order
+2) Secondary key: the number of template expressions embedded within the pattern
+  - that is, {id} or {id : .+}
+  - sort in DESC order
+3) Tertiary key: the number of nondefault template expression
+  - a default template expression is one that does not define a regular expression, e.g., {id}
+
+Example:
+1) /customers/{id}/{name}/address
+2) /customers/{id : .+}/address
+3) /customers/{id}/address
+4) /customers/{id : .+}
+
+- expression 1, 2, 3 comes first because they all have more literal characters than expression 4
+- expression 1 comes frist because the sorting rule #2 is triggered (has more tempalte expressions than either 2 or 3)
+- experssion 2 is sorted ahead of 3 because it trigger sorting rule #3: it has a template pattern that is a regular expression
+-----------------------

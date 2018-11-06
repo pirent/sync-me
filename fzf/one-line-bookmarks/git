@@ -7,6 +7,10 @@ git branch -d the-local-branch ;; delete local branch
 git branch -m <newname> ;; rename the current branch
 git branch -m <oldname> <newname> ;; rename other branch
 git config --global core.editor emacs ;; configure git editor as vi
-git push -d <remote_name> <branch_name>
+git push -d <remote_name> <branch_name> ;; delete remote branch
 https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit ;; revert git to a previous commit
 git reset <commit-hash> ;; undo a commit that already have been pushed by creating new commit, undo all the works that was done in the commit you want to revert
+https://stackoverflow.com/questions/6465699/git-push-to-wrong-branch ;; fix when pushing to wrong branch
+git commit --amend && git push --force-with-lease <repo> <branch> ;; fix previous commit message and already pushed
+https://stackoverflow.com/questions/8981194/changing-git-commit-message-after-push-given-that-no-one-pulled-from-remote ;; fix message after pushed
+https://gist.github.com/gunjanpatel/18f9e4d1eb609597c50c2118e416e6a6 ;; remove already pushed commit

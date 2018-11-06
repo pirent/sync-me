@@ -1,0 +1,15 @@
+Environmental variable VERSUS shell variable
+-------------------------
+Every time a shell session spawns, a process takes place to gather and compile information that should be available to the shell process and its child processes.
+
+Basically the environment provides a medium through which the shell process can get or set settings and, in turn, pass these on to its child processes.
+
+The environment is implemented as strings that represent key-value pairs.
+
+Environmental variables 
+  are variables that are defined for the current shell and are inherited by any child shells or processes. 
+  are used to pass information into processes that are spawned from the shell.
+
+Shell variables 
+  are variables that are contained exclusively within the shell in which they were set or defined. 
+  are often used to keep track of ephemeral data, like the current working directory.

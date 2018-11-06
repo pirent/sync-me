@@ -1,0 +1,35 @@
+JAX-RS and Java object conversion in injection annotation
+----------------------------
+The string request data can be converted into a Java object before injected into JAX-RS method parameters
+This object's class must have a constructor OR a static method name valueOf() that takes a single String param.
+
+@GET
+@Produces("text/html")
+public String get(@HeaderParam("Referer") URL referer) {
+	...
+}
+
+This convert the Referer string header into an URL object because this class has a constructor that takes only one String parameter.
+
+In this example, we used the @MatrixParam to inject the color of our vehicle.
+Instead of representing color as a string, let's define and use a Java enum:
+
+public enum Color {
+  BLACK, BLUE, RED, WHITE
+}
+
+@GET
+@Path("/{model}/{year}")
+@Produces("image/jpeg")
+public Jpeg getPictures(@PathParam("make") String make, 
+						@PathParam("model") String model,
+						@MatrixParam("color") Color color) {
+	...
+}
+
+
+If the class either has no String constructor or no valueOf() method >> use javax.ws.rs.ext.ParamConverter.
+Then we also have to implement the ParamConverterProvider interface as its factory.
+And that factory must be scanned or registered with the Application deployment class
+
+----------------------------  
