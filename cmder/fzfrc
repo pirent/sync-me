@@ -1,0 +1,28 @@
+fzf-snippet ()
+{
+    selected="$(cat $1 | sed '/^$/d' | sort -n | fzf -d -e -i )";
+    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n';
+    echo "$selected"
+}
+
+fzf-multisnippet ()
+{
+    #dir=$FZF_MULTILINE_SNIPPET_DIR;
+    dir=$MULTILINE_BOOKMARKS_DIR;
+    results=$(for FILE in $dir/*
+    do
+        getname=$(basename $FILE)
+        gettags=$(head -n 1 $FILE)
+
+        printf "$getname \t\t $gettags\n"
+
+    done);
+    filename=$(echo "$(echo "$results" | fzf -d -e -i )" | cut -d' ' -f 1);
+    echo && cat $dir/$filename && echo;
+    sed 1d $dir/$filename
+}
+
+export BOOKMARKS_CATEGORY_DIR="$HOME/Git/sync-me/fzf/one-line-bookmarks/"
+export MULTILINE_BOOKMARKS_DIR="$HOME/Git/sync-me/fzf/multiple-lines-bookmarks/"
+alias phuc_search_bookmark='fzf-snippet $(find $BOOKMARKS_CATEGORY_DIR | fzf)'
+alias multiline-search-bookmark='fzf-multisnippet'
