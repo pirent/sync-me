@@ -1,0 +1,8 @@
+Ctrl + K > enter ;;  get a tab out of preview mode, aka mapped to the command 'workbench.action.keepEditor'
+Ctrl + P, press "right arrow" ;; open a file permanently from the "Go To File"
+Add this "workbench.editor.enablePreview": false to setting.json ;; permanently disable Preview mode
+Ctrl + Shift + F ;; search for file
+Ctrl + Shift + E ;; explorer
+F4 ;; jump to next search result
+Shift + F4 ;; jump to the previous search result
+Ctrl + 1 ;; focus on the first editor
