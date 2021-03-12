@@ -1,7 +1,7 @@
 fzf-snippet ()
 {
     selected="$(cat $1 | sed '/^$/d' | sort -n | fzf -d -e -i )";
-    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//' | tr -d '\n';
+    echo "$selected" | sed -e s/\;\;\.\*\$// | sed 's/^[ \t]*//;s/[ \t]*$//';
     echo "$selected"
 }
 
