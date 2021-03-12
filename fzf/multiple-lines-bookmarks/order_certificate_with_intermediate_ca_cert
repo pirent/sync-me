@@ -1,0 +1,15 @@
+How to check certificate ordering in cert chain with intermediate cert
+-------------------------------
+# create the correct file for the chain using the following command
+cat cert.pem intermediate.pem > chain.pem
+
+# check the chain is correct, using this command which will list each certificate in order with the issuer and subjec
+openssl crl2pkcs7 -nocrl -certfile chain.pem | openssl pkcs7 -print_certs -noout
+
+---------
+Expected result
+---------
+subject=/C=Countrycode/ST=State/O=Organization/CN=FQDN
+issuer=/C=Countrycode/ST=State/O=Organization/CN=the name of the intermediate CA
+subject=/C=Countrycode/ST=State/O=Organization/CN=the name of the intermediate CA
+issuer=/C=Countrycode/ST=State/O=Organization/CN=the name of the CA

@@ -1,0 +1,12 @@
+openssl s_client -connect <host:port> ;; connect to a server
+echo | openssl s_client -connect <host:port> 2>&1 | sed --quiet '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <certificate file path> ;; extract remote certificate with only the leaf one
+echo | openssl s_client -connect <host:port> -showcerts 2>&1 | sed --quiet '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <certificate file path> ;; extract remote certifcate path
+openssl verify cert.pem ;; verify certificate
+openssl verify -CAfile ca.pem cert.pem ;; validate certificate without intermediate CA certificate
+openssl verify -CAfile ca.pem -untrusted intermediate.cert.pem cert.pem ;; validate certificate with intermediate one in the chain, use '-untrusted' multiple times if you have multiple intermediate CA cert
+openssl x509 -in cert.pem -noout -issuer ;; find CA (issuer) who issued this certificate
+openssl x509 -noout -subject -in ca.pem ;; find subject of the CA certificate (whether it match with the issuer of the previous command)
+openssl pkey -in privateKey.key -pubout -outform pem | sha256sum ;; verify matching of private key, public key, and csr
+openssl x509 -in certificate.crt -pubkey -noout -outform pem | sha256sum ;; verify matching of private key, public key, and csr
+openssl req -in CSR.csr -pubkey -noout -outform pem | sha256sum ;; verify matching of private key, public key, and csr
+
