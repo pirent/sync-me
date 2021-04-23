@@ -1,0 +1,7 @@
+mysqladmin --host=127.0.0.1 --port=3307 -u root password showmethemoney ;; change root password
+mysql_install_db --user=mysql --datadir=/var/lib/mysql_primary ;; initial MySQL data directory
+show processlist ;; show the processes
+show status where `variable_name` = 'Threads_connected' ;; see the number of active connections
+mysqldump -u <user> -p <database name> --no-create-info > <file path> ;; dump data only
+mysql -u username -p database_name < file.sql ;; import dump file
+https://mariadb.com/kb/en/library/configuring-mariadb-for-remote-client-access/ ;; solution for ERROR 2002 (HY000): Can't connect to MySQL server 115

@@ -6,3 +6,5 @@ gradle --daemon ;; starts daemon
 gradle --stop ;; stop daemon
 gradle dependencies ;; show the dependency tree, both top-level and their transitive ones
 gradle -q dependencyInsight --configuration <name-of-config> --dependency <dependency-notation> ;; get dependency insight report
+gradle test --tests all.in.specific.package* ;; test in a specific package
+gradle test --tests org.gradle.SomeTest.someSpecificFeature ;; test specific method

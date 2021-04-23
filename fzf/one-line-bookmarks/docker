@@ -1,0 +1,10 @@
+docker ps -a ;; list all containers, both running and stopped
+docker ps -s ;; list the total size of each container
+docker ps -l ;; list the latest created containers
+docker start <container_id> ;; start a container
+docker start --rm <container_id> ;; start a container and remove it after stopping
+docker run --name <name> <image_name> ;; create a new container with a name and run it
+docker run -it --name <name> <image_name> ;; start the container in interactive mode
+docker attach <container_id> ;; connect to a running container
+docker stop --time 20 <container_id> ;; tell container to stop service after a period in second
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id> ;; get the container's IP from the host

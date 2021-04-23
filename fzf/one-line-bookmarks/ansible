@@ -8,3 +8,4 @@ ansible-playbook --start-at-task="task name" ;; start running the playbook at th
 > ;; line folding
 local_action ;; running a task on the control machine
 run_once: true ;; run a command only once, no matter how many hosts
+export ANSIBLE_STDOUT_CALLBACK=debug ;; human-readable stdout/stderr results display

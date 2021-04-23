@@ -11,10 +11,6 @@ https://opensource.com/business/13/11/selinux-policy-guide ;; SELinux explainati
 https://www.digitalocean.com/community/tutorials/an-introduction-to-selinux-on-centos-7-part-1-basic-concepts ;; SELinux concepts
 diff --brief <dir1> <dir2> ;; compare difference between two directories
 ln -sf /path/to/file /path/to/symlink ;; create, update a symbolic link
-systemctl cat <name-of-service> ;; see content of a unit file of systemd
-systemctl edit --full <name-of-service> ;; edit the entire content of the unit file; then remember to reload systemd
-systemctl daemon-reload ;; reload systemd process to pick up recent changes
-journalctl -b -u <name-of-service> ;; see all journal entries for the unit provided, limit to the current boot
 cat /etc/redhat-release ;; check OS distribution version - redhat based
 unzip -p /path/to/some.jar path/to/file/inside/jar | less ;; read content of file in jar
 jar tvf <jar-file> ;; list content of JAR file
@@ -25,5 +21,36 @@ rpm -ivh <file.rpm> ;; install a RPM file
 rpm -q <name of package> ;; check whether a RPM package has been installed
 rpm -e <name of pakcage> ;; remove an installed RPM package
 less -N <file> ;; show line numbers
-sed -n '<start-line>,<end-line>p' <file> ;; crop/cut text file
+sed -n '<start-line>,<end-line>p' <file> ;; crop/cut text file based on line number
 keytool -list -v -keystore <keystore_name> ;; view JKS file
+keytool -export -alias mydomain -file mydomain.crt -keystore keystore.jks ;; export a certificate from a keystore
+netstat -tulpn ;; find out which processes using ports
+t(char} ;; select until reach the specific character
+systemctl enable <name-of-service> ;; enabling a service at boot
+systemctl is-enable(OR is-active OR is-failed) <name-of-service> ;; monitor service status
+systemctl list-unit-files --type=service ;; list installed unit files
+systemctl list-unit-files | grep enabled ;; list all enabled services in systemd
+systemctl cat <name-of-service> ;; see content of a unit file of systemd
+systemctl edit --full <name-of-service> ;; edit the entire content of the unit file; then remember to reload systemd
+systemctl daemon-reload ;; reload systemd process to pick up recent changes
+systemctl list-dependencies <name-of-serive> ;; view a unit file's dependencies
+systemctl list-unit-files --type=target ;; list all available targets
+systemctl list-units --type=target ;; list currently active targets
+journalctl -b -u <name-of-service> ;; see all journal entries for the unit provided, limit to the current boot
+journalctl --since "2018-08-30 14:10:10" --until "2018-09-02 12:05:50" ;; show log within time range
+less -rf <file> ;; workaround for log files which contain characters that make the files look like a binary.
+sudo iptables -L || grep policy ;; to see what your policy chains are currently configured to do with unmatched traffic
+rpm -qlpv <path the RPM package> ;; list files in RPM package with -q to specify it as a query command, -l to list the files in the package, and -p so it knows to query the uninstalled package file
+rpm2cpio <path to RMP package> | cpio -idmv ;; extract files from an RPM package's cpio archive
+openssl x509 -text -noout -in <path-to-certificate> ;; read the SSL Certificate information from a text-file
+openssl s_client -showcerts -connect <name-of-remote-server>:<port-of-remote-server> ;; read the SSL Certificate information from a remote server
+type -N <return> on less ;; to show line number on less without quitting
+awk '{$1=$2=$3="";print $0}' <path to file> > <path to new file> ;; cut first 3 columns from a file 
+find <options> <path> <expressions> ;; syntax of 'find' command
+find . -name testfile.txt ;; find a file called testfile.txt in current and subdirectories
+find /home -name *.jpg ;; find all .jpg files in the /home and its subdirectories
+find . -type f -empty ;; find an empty file within the current directory
+find /home -user phuc -mtime -7 -iname ".db" ;; find all .db files (ignoring cases) modified by the last 7 days by a user named phuc
+find . -type f -exec grep "example" '{}' \; -print ;; search every files in current directory then run command 'grep' on every satisfied file
+name=<your string>;echo ${name^^} ;; upper the whole input string
+:set textwidth=80 ;; wrap text at 80 characters in Vim
