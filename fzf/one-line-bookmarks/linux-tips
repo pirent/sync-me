@@ -27,3 +27,6 @@ rpm -e <name of pakcage> ;; remove an installed RPM package
 less -N <file> ;; show line numbers
 sed -n '<start-line>,<end-line>p' <file> ;; crop/cut text file
 keytool -list -v -keystore <keystore_name> ;; view JKS file
+rpm -qa | grep -i 'name of package or name of the service' ;; find the exact package name
+rpm -e <exact package name> ;; remove the package
+rpm -qpi <rpm package name> | grep Relocations ;; check if an RPM package can be installed into another directory
