@@ -1,0 +1,17 @@
+--- Truncate table versus Delete From ---
+
+Truncate is more efficient because it's a bulk operation, and does not reference any row before deleting; 
+while DELETE * FROM, actually, works on one row at a time.
+
+But if your table has constraint (e.g., foreign key), then you cannot truncate that table.
+Workaround:
+1) Switch to DELETE FROM
+	DELETE FROM mytest.instance;
+	ALTER TABLE mytest.instance AUTO_INCREMENT = 1;
+2) it might break data integrity 
+	SET FOREIGN_KEY_CHECKS = 0; 
+	TRUNCATE table $table_name; 
+	SET FOREIGN_KEY_CHECKS = 1;
+
+----
+Read more: https://stackoverflow.com/questions/5452760/how-to-truncate-a-foreign-key-constrained-table

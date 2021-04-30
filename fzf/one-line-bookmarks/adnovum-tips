@@ -23,3 +23,5 @@ https://aww.adnovum.ch/confluence/x/8bX1 ;; Code review tooling
 https://aww.adnovum.ch/confluence/x/XQgcAQ ;; Code review best practice
 
 sudo systemctl stop NetworkManager && sudo vim /var/lib/NetworkManager/NetworkManager.state && systemctl start NetworkManager ;; Fix not connect to network
+
+curl -F 'file=@my_pipeline.gocd.yaml' https://gocd-yaml-config-checker.openshift-hosted.adnovum.ch/validate | jq ;; GoCD YAML config check service

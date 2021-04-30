@@ -14,5 +14,22 @@ https://stackoverflow.com/questions/6465699/git-push-to-wrong-branch ;; fix when
 git commit --amend && git push --force-with-lease <repo> <branch> ;; fix previous commit message and already pushed
 https://stackoverflow.com/questions/8981194/changing-git-commit-message-after-push-given-that-no-one-pulled-from-remote ;; fix message after pushed
 https://gist.github.com/gunjanpatel/18f9e4d1eb609597c50c2118e416e6a6 ;; remove already pushed commit
+https://stackoverflow.com/questions/953481/find-and-restore-a-deleted-file-in-a-git-repository ;; restore a deleted committed file
+git remote prune origin --dry-run ;; tidy up dead branches
+git log --follow -p $file ;; show history of a file
+git checkout <commit hash> -- file1/to/restore ;; reset/revert a file to a specific version
+git add -p ;; interactively add selected parts of files
+git stash -p ;; interactively stash selected parts of files
+git stash -u ;; stash with untracked files
+git checkout -p ;; interactively revert selected part of files
+git checkout - ;; switch to the previous branch
+git checkout . ;; revert all local change
+git diff --name-only --diff-filter=U | uniq  | xargs $EDITOR ;; open all files with conflict at once
+git whatchanged —-since=‘2 weeks ago’ ;; show a log with changes introduced by each commit from the last two weeks
+git rm --cached <file-to-remove> & git commit --amend ;; remove file from the last commit
+git branch --contains <commit> ;; show all branches that contain a particular commit
+git gc --prune=now --aggressive ;; optimize the repository locally
+https://chris.beams.io/posts/git-commit/#imperative ;; how to write a Git commit message
+https://confluence.atlassian.com/bitbucketserverkb/how-do-you-make-changes-on-a-specific-commit-779171729.html ;; how to edit a commit
 git config --system core.longpaths true ;; long file name in Windows
 git revert --no-commit <commit-hash>..HEAD ;; revert everything from the HEAD back to the commit hash, --no-commit flags lets git revert all commits at once - otherwise, you're prompted for a message for each commit in range, littering history with unnecessary new commits

@@ -5,3 +5,5 @@ F6 ;; switch editor
 Ctrl + M ;; maximize/restore the active view
 Ctrl + Shift + L ;; show a list of available shortcuts
 Ctrl + F10 ;; switch working set
+Ctrl + Shift + X ;; upper case selected text
+Ctrl + Shift + Y ;; lower case selected text
