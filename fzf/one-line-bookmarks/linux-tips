@@ -58,6 +58,7 @@ find /home -user phuc -mtime -7 -iname ".db" ;; find all .db files (ignoring cas
 find . -type f -exec grep "example" '{}' \; -print ;; search every files in current directory then run command 'grep' on every satisfied file
 name=<your string>;echo ${name^^} ;; upper the whole input string
 :set textwidth=80 ;; wrap text at 80 characters in Vim
+source "$HOME/.sdkman/bin/sdkman-init.sh" ;; sourcing SDK
 rpm -qa | grep -i 'name of package or name of the service' ;; find the exact package name
 rpm -e <exact package name> ;; remove the package
 rpm -qpi <rpm package name> | grep Relocations ;; check if an RPM package can be installed into another directory

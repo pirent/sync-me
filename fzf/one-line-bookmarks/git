@@ -32,4 +32,5 @@ git gc --prune=now --aggressive ;; optimize the repository locally
 https://chris.beams.io/posts/git-commit/#imperative ;; how to write a Git commit message
 https://confluence.atlassian.com/bitbucketserverkb/how-do-you-make-changes-on-a-specific-commit-779171729.html ;; how to edit a commit
 git config --system core.longpaths true ;; long file name in Windows
+git commit --amend --author="John Doe <john@doe.org>" ;; change last commit's author
 git revert --no-commit <commit-hash>..HEAD ;; revert everything from the HEAD back to the commit hash, --no-commit flags lets git revert all commits at once - otherwise, you're prompted for a message for each commit in range, littering history with unnecessary new commits
