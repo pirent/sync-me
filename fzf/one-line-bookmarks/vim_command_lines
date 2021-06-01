@@ -1,0 +1,25 @@
+:. ;; current line
+:% ;; all lines in the current file
+:.,$ ;; from the current line to end of file
+:/<html>/,/<\/html>/<command> ;; specify range by pattern and run the command
+:/<html>/+1,/<\/html>/-1<command> ;; run the command on every line inside <html> block but not the lines contain <html> tags
+:.,.+3<command> ;; run the command on 3 lines starting from the current line
+:0 ;; virtual above first line of the file, useful when copy/move a range of lines to the top of a file
+:[range] t {address} ;; duplicate one or more lines, equivalent to :copy
+:[range] m {address};; move one or more lines, equivalent to :move
+:6t. ;; Copy line 6 to just below the current line
+:t6 ;; Copy the current line to just below line 6
+:t. ;; Duplicate the current line, similar to Normal mode yyp
+:t$ ;; Copy the current line to the end of the file
+:'<,'>t0 ;; Copy the visually selected lines to the start of the file
+:'<,'>m$ ;; Move the selected lines to the end of file
+@: ;; Repeat the last Ex command
+:<some characters> CTRL-D ;; reveal a list of possible completions, then use TAB
+:<command> CTRL-D ;; shoew a list of options for the command
+:.+1,$normal . ;; Repeat the last Normal mode command from the next line to the end of file
+:%normal A; ;; append a semicolon at the end of every line
+:!{external shell command} ;; invoke one-off command
+:shell ;; start interactive shell session for running several commands in shell, then call 'exit' to return to Vim
+:read !{cmd} ;; direct output into buffer
+:[range]!{filter} ;; filter the specified [range] through external program {filter}
+:[range]write !{cmd} ;; execute {cmd} in shell with [range] lines as input

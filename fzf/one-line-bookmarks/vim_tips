@@ -1,0 +1,40 @@
+. ;; repeat the last change (in either Normal mode or Insert mode)
+A ;; append to the end of line, equivalent to '$a'
+I ;; equivalent to ^i, switch to Insert Mode
+c ;; delete text and start Insert mode
+C ;; equivalent to c$, switch to Insert Mode
+s ;; (substitude) delete the character under cursor, start Insert Mode, equivalent to cl
+S ;; equivalent to ^C, switch to Insert Mode
+f<char> ;; look ahead for the <count>th occurences of the <char>
+; ;; repeat the latest f, t, F or T <count> times, e.g., repeat the last search that f command performed
+* ;; search for next word under cursor
+# ;; search for previous word under cursor
+{start} | * | cw<replacement><ESC> | n | . ;; search, examinate, replay, and repeat
+dl ;; delete a single character
+daw ;; delete a word
+dap ;; delete a paragraph
+d2w ;; delete 2 words
+cW ;; change word
+gUU ;; uppercase the current line, equivalent to gUgU
+:h operator ;; see the list of operators in Vim
+Ctrl-U ;; Insert mode, delete back to start of line
+Ctrl-W ;; Insert mode, delete back one word
+Ctrl-o ;; Switch to Insert Normal mode
+Ctrl-r<register> ;; Paste few words in Insert mode
+Ctrl-r Ctrl-p <register> ;; Paste few words and fix unintended indentation in Insert mode
+Ctrl-v{code} ;; Insert character by its numeric code (expect 3 digit code)
+Ctrl-v u{code} ;; Insert character by its four-digit hex code
+ga ;; Find out the numeric code at character where the cursor is placing
+Ctrl-k {char1}{char1} ;; Insert unusual character by digraph value, e.g. Ctrl-k 12 => ½
+R ;; Normal mode, switch to Replace mode
+v ;; Normal mode, switch to character-wise Visual mode
+V ;; Normal mode, switch to line-wise Visual mode
+Ctrl-V ;; Normal mode, switch to block-wise Visual mode
+gv ;; Normal mode, reselect the last visual selection
+U ;; Visual mode, uppercase the selected
+r<character> ;; Visual mode, replace every characters in the selection with the input character
+CTRL-R CTRL-W ;; insert the object under cursor
+:<some characters> <UP> ;; scroll through past command-lines
+q: ;; open command-line window
+a' OR a" ;; "a quoted string".  selects the text from the previous quote until the next quote.
+i' OR i" ;; similar to a' and a", except that quote characters is not included
